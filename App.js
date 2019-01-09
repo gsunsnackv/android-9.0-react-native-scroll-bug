@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, ScrollView, Image} from 'react-native';
+import {Platform, StyleSheet, Text, View, ScrollView, Image, FlatList} from 'react-native';
 
 const images = [
   "https://d301468hdcm00e.cloudfront.net/cce71941eb82ac08759e0f0cd1052eaf_video-file.png",
@@ -137,9 +137,12 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-        {images.map((image,index) => 
-          <Image key={index} style={{ width: 300, height: 300}} source={{ uri: image }} />
-        )}
+
+      <FlatList
+          data={images}
+          renderItem={({item}) => <Image style={{ width: 300, height: 300}} source={{ uri: item }} />}
+        />
+        
       </ScrollView>
     );
   }
