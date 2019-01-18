@@ -129,6 +129,12 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+const _keyExtractor = (item, index) => {
+  return String(index)
+}
+
+let num = 0
+
 type Props = {};
 export default class App extends Component<Props> {
   render() {
@@ -139,6 +145,7 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>{instructions}</Text>
 
       <FlatList
+          keyExtractor={_keyExtractor}
           data={images}
           renderItem={({item}) => <Image style={{ width: 300, height: 300}} source={{ uri: item }} />}
         />
