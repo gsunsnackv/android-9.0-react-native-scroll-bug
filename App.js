@@ -8,6 +8,8 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, ScrollView, Image, FlatList} from 'react-native';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
+
 
 const images = [
   "https://d301468hdcm00e.cloudfront.net/cce71941eb82ac08759e0f0cd1052eaf_video-file.png",
@@ -136,7 +138,7 @@ const _keyExtractor = (item, index) => {
 let num = 0
 
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
   render() {
     return (
       <ScrollView>
@@ -173,3 +175,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default gestureHandlerRootHOC(App);
+
